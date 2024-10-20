@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Cafe</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Order Café</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Quán Cafe</h1>
-        <h2>Menu</h2>
-        <ul id="menu">
-            <li>
-                <span>Cà phê đen</span>
-                <button onclick="order('Cà phê đen')">Đặt hàng</button>
-            </li>
-            <li>
-                <span>Cà phê sữa</span>
-                <button onclick="order('Cà phê sữa')">Đặt hàng</button>
-            </li>
-            <li>
-                <span>Trà sữa</span>
-                <button onclick="order('Trà sữa')">Đặt hàng</button>
-            </li>
-        </ul>
-        <div id="order-summary"></div>
-    </div>
-    <script src="script.js"></script>
+    <h1>Order Cà Phê</h1>
+    <p>Vui lòng điền vào form dưới đây để đặt hàng.</p>
+    
+    <!-- Chèn form Google Form vào đây -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjIV9iWMSKGwnVgerTuH44o6C7MYT1aeWo7IwaZv8thTiCvg/viewform?embedded=true"></iframe>
 </body>
 </html>
