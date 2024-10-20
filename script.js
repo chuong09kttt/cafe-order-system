@@ -40,7 +40,9 @@ function sendOrderToGoogleForm(orderDetails, total) {
     const data = new URLSearchParams();
     data.append("entry.692832950", orderDetails); // Thay thế XXXX bằng ID của trường cho đơn hàng
     data.append("entry.339655438", total); // Thay thế YYYYYY bằng ID của trường cho tổng tiền
-
+    data.append("entry.339655438", total); // Thay thế YYYYYY bằng ID của trường cho tổng tiền
+    data.append("entry.692832950", orderDetails); // Thay thế XXXX bằng ID của trường cho đơn hàng
+    
     fetch(url, {
         method: 'POST',
         headers: {
