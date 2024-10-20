@@ -11,7 +11,8 @@
         google.charts.setOnLoadCallback(drawTable);
 
         function drawTable() {
-            const queryString = encodeURIComponent('SELECT A, B, C, D, E'); // Chọn thêm các cột D và E
+            //const queryString = encodeURIComponent('SELECT A, B, C, D, E'); // Chọn thêm các cột D và E
+            const queryString = encodeURIComponent('SELECT *');
             const query = new google.visualization.Query(`https://docs.google.com/spreadsheets/d/1xT89qFLUZT_nkOgNrnNEb4l3FP9So96WOHT4h_ceU0A/gviz/tq?tqx=out:json&tq=${queryString}`);
 
             query.send(handleQueryResponse);
