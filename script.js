@@ -60,7 +60,7 @@ function sendOrderToGoogleForm(orderDetails, total) {
         }
     })
     .catch(error => {
-        alert('Có lỗi 2 xảy ra khi gửi đơn hàng, vui lòng thử lại!');
+        alert('Có lỗi xảy ra khi gửi đơn hàng, vui lòng thử lại!');
         console.error('Error:', error);
     });
 }
