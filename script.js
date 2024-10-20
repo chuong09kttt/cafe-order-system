@@ -38,8 +38,10 @@ function sendOrderToGoogleForm(orderDetails, total) {
 
     // Gửi dữ liệu đến Google Form
     const data = new URLSearchParams();
-    data.append("entry.1950817408", orderDetails); // ID cho đơn hàng
-    data.append("entry.1203383195", total); // ID cho tổng tiền
+    //data.append("entry.1950817408", orderDetails); // ID cho đơn hàng
+    //data.append("entry.1203383195", total); // ID cho tổng tiền
+    data.append("entry.692832950", orderDetails); // ID cho đơn hàng
+    data.append("entry.339655438", total); // ID cho tổng tiền
 
     fetch(url, {
         method: 'POST',
