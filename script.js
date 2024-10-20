@@ -55,12 +55,12 @@ function sendOrderToGoogleForm(orderDetails, total) {
             cart = []; // Xóa giỏ hàng sau khi đặt hàng
             updateCart(); // Cập nhật giỏ hàng
         } else {
-            alert('Có lỗi 1 xảy ra khi gửi đơn hàng, vui lòng thử lại!');
+            alert('Có lỗi 5 xảy ra khi gửi đơn hàng, thử lại!');
             console.error('Error sending order:', response.statusText);
         }
     })
     .catch(error => {
-        alert('Có lỗi xảy ra khi gửi đơn hàng, vui lòng thử lại!');
+        alert('Có lỗi 7 xảy ra khi gửi đơn hàng, vui lòng!');
         console.error('Error:', error);
     });
 }
