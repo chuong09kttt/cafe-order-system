@@ -1,30 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông Tin Đơn Hàng</title>
+    <title>Admin Cafe</title>
+    <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', {'packages':['table']});
+        google.charts.load('current', { 'packages': ['table'] });
         google.charts.setOnLoadCallback(drawTable);
 
         function drawTable() {
-            var query = new google.visualization.Query(
-                'https://docs.google.com/spreadsheets/d/1xT89qFLUZT_nkOgNrnNEb4l3FP9So96WOHT4h_ceU0A/gviz/tq?sheet=Sheet1&headers=1');
+            const queryString = encodeURIComponent('SELECT A, B, C'); // Thay đổi truy vấn nếu cần
+            const query = new google.visualization.Query(`https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/gviz/tq?tqx=out:json&tq=${queryString}`); // Thay thế YOUR_SHEET_ID
+
             query.send(handleQueryResponse);
         }
 
         function handleQueryResponse(response) {
-            var data = response.getDataTable();
-            var table = new google.visualization.Table(document.getElementById('table_div'));
-
-            table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+            if (response.isError()) {
+                console.error('Error in query:', response.getMessage(), response.getDetailedMessage());
+                return;
+            }
+            const data = response.getDataTable();
+            const table = new google.visualization.Table(document.getElementById('order-list'));
+            table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
         }
     </script>
 </head>
 <body>
-    <h1>Thông Tin Đơn Hàng</h1>
-    <div id="table_div"></div>
+    <header>
+        <h1>Thông Tin Đơn Hàng</h1>
+    </header>
+    <main>
+        <h2>Danh sách đơn hàng</h2>
+        <div id="order-list"></div>
+    </main>
 </body>
 </html>
