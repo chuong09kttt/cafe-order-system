@@ -12,7 +12,7 @@
 
         function drawTable() {
             const queryString = encodeURIComponent('SELECT A, B, C'); // Thay đổi truy vấn nếu cần
-            const query = new google.visualization.Query(`https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/gviz/tq?tqx=out:json&tq=${queryString}`); // Thay thế YOUR_SHEET_ID
+            const query = new google.visualization.Query(`https://docs.google.com/spreadsheets/d/1xT89qFLUZT_nkOgNrnNEb4l3FP9So96WOHT4h_ceU0A/gviz/tq?tqx=out:json&tq=${queryString}`); // Thay thế YOUR_SHEET_ID
 
             query.send(handleQueryResponse);
         }
