@@ -37,8 +37,8 @@ function sendOrderToGoogleForm(orderDetails, total) {
 
     // Gửi dữ liệu đến Google Form
     const data = new URLSearchParams();
-    data.append("entry.692832950", orderDetails); // ID cho đơn hàng
-    data.append("entry.339655438", total); // ID cho tổng tiền
+    data.append("entry.692832950", orderDetails); // ID cho chi tiết đơn hàng
+    data.append("entry.339655438", total.toString()); // ID cho tổng tiền
 
     fetch(url, {
         method: 'POST',
@@ -48,6 +48,7 @@ function sendOrderToGoogleForm(orderDetails, total) {
         body: data.toString()
     })
     .then(response => {
+        console.log(response); // Xem phản hồi từ Google Form
         if (response.ok) {
             alert('Đơn hàng của bạn đã được gửi đi!');
             console.log('Order sent successfully');
