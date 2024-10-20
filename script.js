@@ -1,4 +1,3 @@
-// script.js
 let cart = [];
 
 // Thêm món vào giỏ hàng
@@ -38,8 +37,6 @@ function sendOrderToGoogleForm(orderDetails, total) {
 
     // Gửi dữ liệu đến Google Form
     const data = new URLSearchParams();
-    //data.append("entry.1950817408", orderDetails); // ID cho đơn hàng
-    //data.append("entry.1203383195", total); // ID cho tổng tiền
     data.append("entry.692832950", orderDetails); // ID cho đơn hàng
     data.append("entry.339655438", total); // ID cho tổng tiền
 
@@ -57,8 +54,12 @@ function sendOrderToGoogleForm(orderDetails, total) {
             cart = []; // Xóa giỏ hàng sau khi đặt hàng
             updateCart(); // Cập nhật giỏ hàng
         } else {
-            console.error('Error sending order');
+            alert('Có lỗi xảy ra khi gửi đơn hàng, vui lòng thử lại!');
+            console.error('Error sending order:', response.statusText);
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        alert('Có lỗi xảy ra khi gửi đơn hàng, vui lòng thử lại!');
+        console.error('Error:', error);
+    });
 }
