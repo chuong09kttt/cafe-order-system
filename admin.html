@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Đơn Hàng</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var query = new google.visualization.Query(
+                'https://docs.google.com/spreadsheets/d/1xT89qFLUZT_nkOgNrnNEb4l3FP9So96WOHT4h_ceU0A/gviz/tq?sheet=Sheet1&headers=1');
+            query.send(handleQueryResponse);
+        }
+
+        function handleQueryResponse(response) {
+            var data = response.getDataTable();
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        }
+    </script>
+</head>
+<body>
+    <h1>Thông Tin Đơn Hàng</h1>
+    <div id="table_div"></div>
+</body>
+</html>
