@@ -20,29 +20,28 @@ function placeOrder() {
     const orderDetails = cart.map(entry => `${entry.item} - ${entry.price} VNĐ`).join(", ");
     const total = cart.reduce((sum, entry) => sum + entry.price, 0);
     
-    // Gửi dữ liệu đến Google Sheets API
-    sendOrderToGoogleSheets(orderDetails, total);
+    // Gửi dữ liệu đến Google Form
+    sendOrderToGoogleForm(orderDetails, total);
 
     alert('Đơn hàng của bạn đã được gửi đi!');
     cart = []; // Xóa giỏ hàng sau khi đặt hàng
     updateCart(); // Cập nhật giỏ hàng
 }
 
-function sendOrderToGoogleSheets(orderDetails, total) {
-    const url = "https://docs.google.com/spreadsheets/d/1xT89qFLUZT_nkOgNrnNEb4l3FP9So96WOHT4h_ceU0A/edit?resourcekey=&gid=2037062635#gid=2037062635"; // Thay thế bằng URL của Google Sheets API
+function sendOrderToGoogleForm(orderDetails, total) {
+    const url = "https://docs.google.com/forms/d/101Ky21Gx_iCfEOhnyAiCDoqvBhn72PRN5bi8Po-QlkA/edit"; // Thay thế bằng URL Google Form của bạn
 
-    const data = {
-        orderDetails: orderDetails,
-        total: total,
-        timestamp: new Date().toISOString()
-    };
+    // Gửi dữ liệu đến Google Form
+    const data = new URLSearchParams();
+    data.append("entry.XXXXXXX", orderDetails); // Thay thế XXXX bằng ID của trường
+    data.append("entry.YYYYYYY", total); // Thay thế YYYYYY bằng ID của trường
 
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(data)
+        body: data.toString()
     })
     .then(response => {
         if (response.ok) {
