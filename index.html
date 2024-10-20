@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Cafe</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #menu {
-            margin-top: 20px;
-        }
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 5px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h1>Menu Cafe</h1>
-    <div id="menu"></div>
-
-    <h2>Đơn hàng của bạn</h2>
-    <div id="order-summary">Chưa có món nào được chọn.</div>
-    <button id="order-btn" disabled>Đặt hàng</button>
-
+    <div class="container">
+        <h1>Quán Cafe</h1>
+        <h2>Menu</h2>
+        <ul id="menu">
+            <li>
+                <span>Cà phê đen</span>
+                <button onclick="order('Cà phê đen')">Đặt hàng</button>
+            </li>
+            <li>
+                <span>Cà phê sữa</span>
+                <button onclick="order('Cà phê sữa')">Đặt hàng</button>
+            </li>
+            <li>
+                <span>Trà sữa</span>
+                <button onclick="order('Trà sữa')">Đặt hàng</button>
+            </li>
+        </ul>
+        <div id="order-summary"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
